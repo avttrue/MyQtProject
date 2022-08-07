@@ -1,0 +1,2 @@
+# MyQtProject
+Qt6
