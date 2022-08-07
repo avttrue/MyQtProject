@@ -1,0 +1,428 @@
+QWidget {
+selection-color: black;
+selection-background-color: #87CEEB;
+}
+
+QScrollBar:vertical {
+background: none;
+border-radius: 5px;
+width: 14px;
+margin: 1px; }
+
+QScrollBar:vertical:hover {}
+
+QScrollBar::handle:vertical {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+stop: 0.5 black, stop: 0   white,
+stop: 1   white, stop: 0.5 black);
+border-radius: 5px;
+min-height: 32px;
+border: 1px outset grey; }
+
+QScrollBar::handle:vertical:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+stop: 0.5 white, stop: 0   black,
+stop: 1   black, stop: 0.5 white); }
+
+QScrollBar:horizontal {
+background: none;
+border-radius: 5px;
+height: 14px;
+margin: 1px; }
+
+QScrollBar:horizontal:hover {}
+
+QScrollBar::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0   white, stop: 0.5 black,
+stop: 0.5 black, stop: 1   white);
+border-radius: 5px;
+min-width: 32px;
+border: 1px outset grey; }
+
+QScrollBar::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0   black, stop: 0.5 white,
+stop: 0.5 white, stop: 1   black); }
+
+QScrollBar::sub-line:vertical,
+QScrollBar::add-line:vertical,
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+height: 0px; }
+
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-line:horizontal,
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+width: 0px; }
+
+QSplitter::handle {
+width: 3px;  /* vertical */
+height: 3px; /* horizontal */
+border: 1px solid gray;
+margin: 1px 1px 1px 1px;
+}
+
+QSplitter::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+stop: 0.5 #C0C0C0, stop: 0 white,
+stop: 1 white, stop: 0.5 #C0C0C0);
+}
+
+QSplitter::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+stop: 0.5 black, stop: 0 white,
+stop: 1 white, stop: 0.5 black); }
+
+QSplitter::handle:vertical {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 #C0C0C0, stop: 0.5 white,
+stop: 0.5 white, stop: 1 #C0C0C0);
+}
+
+QSplitter::handle:vertical:hover {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 black, stop: 0.5 white,
+stop: 0.5 white, stop: 1 black); }
+
+/*
+QSplitter::handle {
+image: url(images/splitter.png); }
+
+QSplitter::handle:pressed {
+image: url(images/splitter_pressed.png); }
+*/
+
+QProgressBar{
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 gray, stop: 0.5 white,
+stop: 0.5 white, stop: 1 gray);
+border: 1px inset gray;
+text-align: center;
+color: blue;
+font-family: monospace; font: bold; }
+
+QProgressBar::chunk {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 black, stop: 0.5 gray,
+stop: 0.5 gray, stop: 1 black); }
+
+QMenu {
+background: #F2EFFB;
+color: black;
+border: 1px solid darkgray;
+}
+
+QPlainTextEdit {
+background: #F2EFFB;
+color: black;
+}
+
+QTextBrowser {
+background: #F2EFFB;
+color: black;
+}
+
+QListWidget {
+background: #F2EFFB;
+alternate-background-color: #E0F8F7;
+color: black;
+font: bold;
+}
+
+QTreeView {
+padding-top:    2px;
+padding-bottom: 2px;
+background: #F2EFFB;
+show-decoration-selected: 1;
+alternate-background-color: #E0F8F7;
+color: black;
+font: bold;
+outline: none;
+}
+
+QTreeView::item {
+border: 0px;
+border-top-color: transparent;
+border-bottom-color: transparent;
+padding: 2px 0px 2px 0px;
+color: black;
+}
+
+QTreeView::item:hover {
+background: #6EA8C0;
+}
+
+QTreeView::item:selected {
+background: #87CEEB;
+}
+
+QTreeView::item:selected:hover {
+background: #6EA8C0;
+}
+
+QTreeView::branch {
+background-color: #F2EFFB;
+}
+
+QTreeView::branch:has-siblings:!adjoins-item {
+border-image: none;
+image: url(:/resources/css/vline.svg); }
+
+QTreeView::branch:has-siblings:adjoins-item {
+border-image: none;
+image: url(:/resources/css/branch-more.svg); }
+
+QTreeView::branch:!has-children:!has-siblings:adjoins-item {
+border-image: none;
+image: url(:/resources/css/branch-end.svg); }
+
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+border-image: none;
+image: url(:/resources/css/branch-closed.svg); }
+
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+border-image: none;
+image: url(:/resources/css/branch-open.svg); }
+
+QTabBar::tab {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 silver, stop: 0.5 transparent,
+stop: 0.5 transparent, stop: 1 silver);
+border: 1px solid gray;
+border-bottom: 0px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+min-width: 8ex;
+padding: 3px; }
+
+QTabBar::tab:hover {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 transparent, stop: 0.5 silver,
+stop: 0.5 silver, stop: 1 transparent);
+color: black;
+}
+
+QTabBar::tab:selected {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 transparent, stop: 0.5 white,
+stop: 0.5 white, stop: 1 transparent);
+border-top: 3px solid #00BFFF;
+color: black;
+}
+
+QTabBar::tab:!selected {
+margin-top: 4px; }
+
+QSlider::groove:horizontal {
+border: 1px solid gray;
+background: white;
+height: 8px;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                            stop: 0 silver,
+                            stop: 0.5 black,
+                            stop: 0.5 black,
+                            stop: 1 silver);
+border: 1px solid gray;
+border-radius: 4px;
+}
+
+QSlider::add-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                            stop: 0 gray,
+                            stop: 0.5 white,
+                            stop: 0.5 white,
+                            stop: 1 gray);
+border: 1px solid gray;
+border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                            stop:0 white,
+                            stop:1 black);
+border: 1px solid blue;
+width: 18px;
+margin-top: -5px;
+margin-bottom: -5px;
+border-radius: 9px;
+}
+
+QSlider::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                            stop:0 white,
+                            stop:1 darkblue);
+}
+
+QSlider::sub-page:horizontal:disabled {
+background: darkgray;
+border-color: black;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: silver;
+border-color: black;
+}
+
+QSlider::handle:horizontal:disabled {
+background: darkgray;
+border: 1px solid black;
+}
+
+/*--- custom ---*/
+
+QHeaderView#ViolaHeader::section {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 #C0C0C0, stop: 0.5 white,
+stop: 0.5 white, stop: 1 #C0C0C0);
+border: 1px solid silver;
+font-family: monospace;
+padding-left: 4px;
+color: black;
+font: bold;
+}
+
+QHeaderView#ViolaHeader::section:checked {}
+
+QHeaderView#ViolaHeader::down-arrow {}
+
+QHeaderView#ViolaHeader::up-arrow {}
+
+QTabWidget#ViolaHeader::pane {}
+
+QTabWidget#ViolaHeader::tab-bar {}
+
+QToolButton#ViolaButton,
+QPushButton#ViolaButton {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 #C0C0C0, stop: 0.5 white,
+stop: 0.5 white, stop: 1 #C0C0C0);
+border-radius: 5px;
+border: 2px inset transparent;
+padding: 0px;
+margin: 0px; }
+
+QToolButton#ViolaButton:hover,
+QPushButton#ViolaButton:hover {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 #C0C0C0, stop: 0.5 white,
+stop: 0.5 white, stop: 1 #C0C0C0);
+border: 2px inset grey; }
+
+QToolButton#ViolaButton:pressed,
+QPushButton#ViolaButton:pressed {
+background-color: #C0C0C0; }
+
+QToolButton#ViolaButton:checked,
+QPushButton#ViolaButton:checked {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop: 0 #F2EFFB, stop: 0.5 #B0C4DE,
+stop: 0.5 #B0C4DE, stop: 1 #F2EFFB);
+border: 2px inset grey; }
+
+QToolButton#ViolaButton:menu-indicator,
+QPushButton#ViolaButton::menu-indicator
+{
+    image: none;
+    subcontrol-position: right bottom;
+    subcontrol-origin: padding;
+    left: -2px;
+}
+
+QSlider#ViolaProgressSlider::groove:horizontal {
+border: 1px solid gray;
+background: white;
+height: 6px;
+border-radius: 3px;
+}
+
+QSlider#ViolaProgressSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                            stop: 0 silver,
+                            stop: 0.5 black,
+                            stop: 0.5 black,
+                            stop: 1 silver);
+border: 1px solid gray;
+border-radius: 3px;
+}
+
+QSlider#ViolaProgressSlider::add-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                            stop: 0 gray,
+                            stop: 0.5 white,
+                            stop: 0.5 white,
+                            stop: 1 gray);
+border: 1px solid gray;
+border-radius: 3px;
+}
+
+QSlider#ViolaProgressSlider::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                            stop:0 white,
+                            stop:1 black);
+border: 1px solid blue;
+width: 18px;
+margin-top: -6px;
+margin-bottom: -6px;
+border-radius: 9px;
+}
+
+QSlider#ViolaProgressSlider::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                            stop:0 white,
+                            stop:1 darkblue);
+}
+
+QSlider#ViolaProgressSlider::sub-page:horizontal:disabled {
+background: darkgray;
+border-color: black;
+}
+
+QSlider#ViolaProgressSlider::add-page:horizontal:disabled {
+background: silver;
+border-color: black;
+}
+
+QSlider#ViolaProgressSlider::handle:horizontal:disabled {
+background: darkgray;
+border: 1px solid black;
+}
+
+QTableView#ViolaTableView {
+padding-top:    2px;
+padding-bottom: 2px;
+background: #F2EFFB;
+show-decoration-selected: 1;
+alternate-background-color: #E0F8F7;
+color: black;
+font-family: monospace;
+font: bold;
+outline: none;
+}
+
+QTableView#ViolaTableView::item {
+border: 0px;
+border-top-color: transparent;
+border-bottom-color: transparent;
+padding: 2px 0px 2px 0px;
+color: black;
+}
+
+QTableView#ViolaTableView::item:hover {
+background: #6EA8C0;
+}
+
+QTableView#ViolaTableView::item:selected {
+background: #87CEEB;
+}
+
+QTableView#ViolaTableView::item:selected:hover {
+background: #6EA8C0;
+}
