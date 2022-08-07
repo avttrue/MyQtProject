@@ -18,5 +18,6 @@
         <file>resources/img/left_arrow.svg</file>
         <file>resources/img/right_arrow.svg</file>
         <file>resources/img/up_arrow.svg</file>
+        <file>resources/img/edit.svg</file>
     </qresource>
 </RCC>
