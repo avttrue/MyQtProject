@@ -163,37 +163,63 @@ void DialogBody::setToolBarIconSize(int intsize)
     m_ToolBar->setIconSize(QSize(intsize, intsize));
 }
 
-void DialogBody::hideToolBar()
+void DialogBody::clearToolBar()
 {
+    qInfo() << __func__;
     auto actions = m_ToolBar->actions();
     for(auto a: actions) m_ToolBar->removeAction(a);
+}
 
+void DialogBody::hideToolBar()
+{
+    qInfo() << __func__;
+    clearToolBar();
     m_ToolBar->addWidget(new WidgetSpacer(this));
     m_ToolBar->setMaximumHeight(1);
 }
 
 void DialogBody::addToolBarSeparatorLeft(bool visible)
 {
+    qInfo() << __func__;
     addCustomToolBarWidgetFirst(m_ToolBar, new SeparatorV(this, visible));
 }
 
 void DialogBody::addToolBarSpacerRight()
 {
-    m_ToolBar->addWidget(new WidgetSpacer(this));
+    qInfo() << __func__;
+    auto a = m_ToolBar->addWidget(new WidgetSpacer(this));
+    a->setProperty("isWidgetSpacer", true);
+}
+
+void DialogBody::removeToolBarSpacers()
+{
+    qInfo() << __func__;
+    auto actions = m_ToolBar->actions();
+    for(auto a: actions)
+    {
+        if(a->property("isWidgetSpacer").isValid() && a->property("isWidgetSpacer").toBool())
+        {
+            qDebug() << "WidgetSpacer removed";
+            m_ToolBar->removeAction(a);
+        }
+    }
 }
 
 void DialogBody::addToolBarActionRight(QAction *action, const QString& stylename)
 {
+    qInfo() << __func__;
     addCustomToolBarAction(m_ToolBar, action, stylename);
 }
 
 void DialogBody::addToolBarActionLeft(QAction *action, const QString &stylename)
 {
+    qInfo() << __func__;
     addCustomToolBarActionFirst(m_ToolBar, action, stylename);
 }
 
 void DialogBody::addToolBarWidgetLeft(QWidget *widget)
 {
+    qInfo() << __func__;
     addCustomToolBarWidgetFirst(m_ToolBar, widget);
 }
 

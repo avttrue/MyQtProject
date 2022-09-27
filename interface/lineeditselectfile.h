@@ -13,7 +13,7 @@ public:
     explicit LineEditSelectFile(QWidget *parent,
                                 bool asCatalog,
                                 const QString& text = "",
-                                bool any = false);
+                                bool fileExist = true);
     QLineEdit* LineEdit() { return m_le; }
     QString getText();
     void setFileFilter(const QString& text) {m_FileFilter = text; };
@@ -23,7 +23,7 @@ private:
     QPushButton*    m_pb;
     QString         m_FileFilter;
     bool            m_AsCatalog;
-    bool            m_Any;
+    bool            m_FileExist;
 
 private Q_SLOTS:
     void slotOpenFile();

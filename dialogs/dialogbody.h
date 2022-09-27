@@ -55,13 +55,15 @@ public:
 
     void addDialogContent(QWidget* widget);
     void setClosable(bool value);
-    void addToolBarSeparatorLeft(bool visible = true);
     void setToolBarIconSize(int intsize);
     void hideToolBar();
     void addToolBarSpacerRight();
+    void removeToolBarSpacers();
+    void addToolBarSeparatorLeft(bool visible = true);
     void addToolBarActionRight(QAction *action, const QString& stylename = "");
     void addToolBarActionLeft(QAction *action, const QString &stylename = "");
     void addToolBarWidgetLeft(QWidget *widget);
+    void clearToolBar();
 
 private:
     QPushButton*    m_BtnCaptionClose;

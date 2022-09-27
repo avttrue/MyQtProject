@@ -50,7 +50,9 @@ void EditTextWidget::slotTextEdit()
 {
     auto text = m_te->toPlainText();
     auto dte = new DialogTextEdit(this, tr("Edit text"), ":/resources/img/edit.svg",  &text);
-    dte->resize(TEXT_EDIT_SIZE);
+    dte->setObjectName("ConfigDialogTextEdit");
+    dte->resize(config->GetWidgetSize(dte, TEXT_EDIT_SIZE));
+    QObject::connect(dte, &DialogBody::signalSizeChanged, this, [=]() { config->SaveWidgetSize(dte); });
     if(!dte->exec()) return;
 
     qInfo() << __func__ << ": Accepted";

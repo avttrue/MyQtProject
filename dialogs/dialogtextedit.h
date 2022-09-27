@@ -1,7 +1,7 @@
 #ifndef DIALOGTEXTEDIT_H
 #define DIALOGTEXTEDIT_H
 
-#include "dialogs/dialogbody.h"
+#include "dialogbody.h"
 
 class QPlainTextEdit;
 

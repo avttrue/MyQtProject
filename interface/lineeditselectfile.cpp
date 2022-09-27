@@ -1,8 +1,6 @@
 #include "lineeditselectfile.h"
 #include "properties.h"
 
-#include "../helpers/helper_common.h"
-
 #include <QDebug>
 #include <QFileDialog>
 #include <QHBoxLayout>
@@ -12,10 +10,10 @@
 LineEditSelectFile::LineEditSelectFile(QWidget *parent,
                                        bool asCatalog,
                                        const QString &text,
-                                       bool any)
+                                       bool fileExist)
     : QFrame(parent),
       m_AsCatalog(asCatalog),
-      m_Any(any)
+      m_FileExist(fileExist)
 {
     setFrameStyle(QFrame::Plain);
     setMidLineWidth(0);
@@ -49,26 +47,24 @@ void LineEditSelectFile::slotOpenFile()
     QString filename;
     if(m_AsCatalog)
     {
-        filename = QFileDialog::getExistingDirectory(this, tr("Выбрать каталог"),
+        filename = QFileDialog::getExistingDirectory(this, tr("Select catalog"),
                                                      config->LastCatalog(),
                                                      QFileDialog::ShowDirsOnly
                                                      | QFileDialog::DontResolveSymlinks);
     }
+    else if(m_FileExist)
+    {
+        filename = QFileDialog::getOpenFileName(this, tr("Select file"),
+                                                config->LastCatalog(),
+                                                m_FileFilter);
+    }
     else
     {
-        if(m_Any)
-        {
-            filename = QFileDialog::getSaveFileName(this, tr("Выбрать файл"),
-                                                    config->LastCatalog(),
-                                                    m_FileFilter);
-        }
-        else
-        {
-            filename = QFileDialog::getOpenFileName(this, tr("Выбрать файл"),
-                                                    config->LastCatalog(),
-                                                    m_FileFilter);
-        }
+        filename = QFileDialog::getSaveFileName(this, tr("Set file name"),
+                                                config->LastCatalog(),
+                                                m_FileFilter);
     }
+
 
     if(filename.isNull() || filename.isEmpty()) return;
 
