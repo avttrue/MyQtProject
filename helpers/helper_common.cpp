@@ -84,7 +84,7 @@ bool CreateDir(const QString &path)
 {
     if(!QDir().exists(path) && !QDir().mkpath(path))
     {
-        qCritical() << __func__ << ": Directory not exist and cannot be created:" << path;
+        qCritical() << __func__ << ": Catalog not exist and cannot be created:" << path;
         return false;
     }
 
@@ -93,11 +93,11 @@ bool CreateDir(const QString &path)
                               QFileDevice::ReadOwner |
                               QFileDevice::WriteOwner))
     {
-        qCritical() << __func__ << ": Cannot set permissions to directory:" << path;
+        qCritical() << __func__ << ": Cannot set permissions to catalog:" << path;
         return false;
     }
 
-    qInfo() << "Directory" << path << "ready";
+    qInfo() << "Catalog" << path << "ready";
     return true;
 }
 

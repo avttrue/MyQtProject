@@ -18,9 +18,9 @@ void consoleOut(QtMsgType type, const QMessageLogContext &context, const QString
 void createDirectories()
 {
     // каталог логов
-    config->setPathLogsDir(config->PathAppDir() + QDir::separator() + LOG_DIRECTORY);
-    if(!CreateDir(config->PathLogsDir()))
-        config->setPathLogsDir(config->PathAppDir());
+    config->setPathLogsCatalog(config->PathAppCatalog() + QDir::separator() + LOG_CATALOG);
+    if(!CreateDir(config->PathLogsCatalog()))
+        config->setPathLogsCatalog(config->PathAppCatalog());
 }
 
 int main(int argc, char *argv[])
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     if(config->WriteLogsToFile())
     {
         auto name = QDateTime::currentDateTime().toString(config->LogFileNameFormat()).append('.');
-        auto file = config->PathLogsDir() + QDir::separator() + name + LOG_FILE_EXTENSION.toLower();
+        auto file = config->PathLogsCatalog() + QDir::separator() + name + LOG_FILE_EXTENSION.toLower();
         m_logFile.reset(new QFile(file));
         m_logFile.data()->open(QFile::Append | QFile::Text);
         qInstallMessageHandler(consoleOut);
@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
     qInfo() << "System info:" << getSystemInfo();
     qInfo() << "Qt version:" << QT_VERSION_STR;
 
-    qInfo() << "PathAppDirectory:" << config->PathAppDir();
     qInfo() << "PathAppConfig:" << config->PathAppConfig();
-    qInfo() << "PathLogsDirectory:" << config->PathLogsDir();
+    qInfo() << "PathAppCatalog:" << config->PathAppCatalog();
+    qInfo() << "PathLogsCatalog:" << config->PathLogsCatalog();
 
     if(config->UseStyleSheet())
         application.setStyleSheet(getTextFromRes(CSS_MAIN));

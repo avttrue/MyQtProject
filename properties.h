@@ -12,7 +12,7 @@ extern const QString APP_NAME;                      // название прил
 extern const QString APP_VERSION;                   // версия приложения
 extern const QString APP_URL;                       // url приложения
 extern const QString DT_FORMAT;                     // формат отображения даты и времени
-extern const QString LOG_DIRECTORY;                 // имя каталога логов
+extern const QString LOG_CATALOG;                   // имя каталога логов
 extern const QString LOG_FILE_EXTENSION;            // расширение имени файлов логов
 extern const QString LOG_FILE_NAME_FORMAT;          // формат имени файлов логов
 extern const QString APP_CFG_FILE_NAME;             // путь до конфига приложения

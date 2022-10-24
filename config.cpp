@@ -8,11 +8,11 @@
 #include <QApplication>
 #include <QWidget>
 
-Config::Config(const QString& in_AppDirectory):
+Config::Config(const QString& in_AppCatalog):
     m_Settings(nullptr)
 {
-    m_PathAppDir = in_AppDirectory;
-    m_PathAppConfig = m_PathAppDir + QDir::separator() + APP_CFG_FILE_NAME;
+    m_PathAppCatalog = in_AppCatalog;
+    m_PathAppConfig = m_PathAppCatalog + QDir::separator() + APP_CFG_FILE_NAME;
 
     qInfo() << "AppConfig:" << m_PathAppConfig;
 
@@ -119,7 +119,7 @@ QPoint Config::GetWidgetPos(QWidget *widget, QPoint def_value)
 void Config::load()
 {
     if(!m_Settings->contains("LastCatalog"))
-        m_Settings->setValue("LastCatalog", m_PathAppDir);
+        m_Settings->setValue("LastCatalog", m_PathAppCatalog);
     m_LastCatalog = m_Settings->value("LastCatalog").toString();
     qInfo() << "LastCatalog:" << m_LastCatalog;
 
@@ -200,12 +200,12 @@ void Config::setWriteLogsToFile(bool value)
     m_Settings->setValue("WriteLogsToFile", m_WriteLogsToFile);
 }
 
-void Config::setPathLogsDir(const QString &value)
+void Config::setPathLogsCatalog(const QString &value)
 {
-    if(m_PathLogsDir == value) return;
+    if(m_PathLogsCatalog == value) return;
 
-    m_PathLogsDir = value;
-    m_Settings->setValue("PathLogsDir", m_PathLogsDir);
+    m_PathLogsCatalog = value;
+    m_Settings->setValue("PathLogsCatalog", m_PathLogsCatalog);
 }
 
 void Config::setMainWindowOnCenter(bool value)
@@ -289,12 +289,12 @@ void Config::setFontPointSizeTextEditor(int value)
 }
 
 bool Config::SIMetric() const { return m_SI_metric; }
-const QString &Config::PathLogsDir() const { return m_PathLogsDir; }
+const QString &Config::PathLogsCatalog() const { return m_PathLogsCatalog; }
 const QString &Config::DateTimeFormat() const { return m_DateTimeFormat; }
 int Config::GUISize() const { return m_GUISize; }
 int Config::SplashTime() const { return m_SplashTime; }
 int Config::SplashSize() const { return m_SplashSize; }
-const QString &Config::PathAppDir() const { return m_PathAppDir; }
+const QString &Config::PathAppCatalog() const { return m_PathAppCatalog; }
 const QString &Config::PathAppConfig() const { return m_PathAppConfig; }
 bool Config::ShowExitQuestion() const { return m_ShowExitQuestion; }
 bool Config::UseStyleSheet() const { return m_UseStyleSheet; }

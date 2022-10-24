@@ -16,7 +16,7 @@ class Config : public QObject
     Q_OBJECT
 
 public:
-    explicit Config(const QString& in_AppDirectory);
+    explicit Config(const QString& in_AppCatalog);
     void SaveWidgetSize(QWidget* widget);
     QSize GetWidgetSize(QWidget* widget, QSize def_value);
     void SaveWidgetPos(QWidget* widget);
@@ -25,12 +25,12 @@ public:
     int SplashTime() const;
     void setSplashTime(int value);
     int SplashSize() const;
-    const QString &PathAppDir() const;
+    const QString &PathAppCatalog() const;
     const QString &PathAppConfig() const;
-    const QString &PathLogsDir() const;
+    const QString &PathLogsCatalog() const;
     const QString &LastCatalog() const;
     void setLastCatalog(const QString &value);
-    void setPathLogsDir(const QString &value);
+    void setPathLogsCatalog(const QString &value);
     int GUISize() const;
     void setGUISize(int value);
     const QString &DateTimeFormat() const;
@@ -61,8 +61,8 @@ private:
     // сохраняемые параметры
     QString m_DateTimeFormat;
     QString m_PathAppConfig;
-    QString m_PathAppDir;
-    QString m_PathLogsDir;
+    QString m_PathAppCatalog;
+    QString m_PathLogsCatalog;
     QString m_LogFileNameFormat;
     QString m_LastCatalog;          // путь до последнего каталога
     QString m_FontNameTextEditor;
